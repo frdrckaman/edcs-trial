@@ -22,6 +22,8 @@ SECRET_KEY = env.str('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG')
 
+LOGIN_REDIRECT_URL = env.str("DJANGO_LOGIN_REDIRECT_URL")
+
 ALLOWED_HOSTS = []
 
 
@@ -34,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'edc_auth.apps.EdcAuthConfig',
+    'edc_dashboard.apps.EdcDashboardConfig',
 ]
 
 MIDDLEWARE = [
@@ -116,3 +120,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EDC_BOOTSTRAP = env("DJANGO_EDC_BOOTSTRAP")
