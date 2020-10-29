@@ -4,6 +4,7 @@ chardet==3.0.4
 Django==3.0
 docopt==0.6.2
 idna==2.10
+Markdown==3.2.1
 pipreqs==0.4.10
 python-environ==0.4.54
 pytz==2020.1

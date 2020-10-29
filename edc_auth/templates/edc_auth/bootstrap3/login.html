@@ -1,5 +1,6 @@
 {% extends 'edc_dashboard/bootstrap3/base.html' %}
 {% load static %}
+{% load auth_tags %}
 {% block title %}<title>EDC - Login</title>{% endblock title %}
 {% block body %}
     <body class="login">
@@ -29,7 +30,27 @@
                             Sign In
                         </h2>
                         <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">Electronic Data Capture System</div>
+                        {% if form.errors %}
+                            {% for error in form.errors.values %}
+{#                                <div class="p-5" id="icon-dismiss-alert">#}
+{#                                    <div class="preview">#}
+                                         <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-6 text-white">
+                                             <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i>
+                                             {% with  error|split:'.' as err %}
+                                                 {% for error in err %}
+                                                     {{ error|striptags }}<br>
+                                                 {% endfor %}
+                                             {% endwith %}
+                                             <i data-feather="x" class="w-4 h-4 ml-auto"></i>
+{#                                         </div>#}
+{#                                    </div>#}
+                                </div>
+                            {% endfor %}
+
+                        {% endif %}
+
                         <form method="post">
+                            {% csrf_token %}
                             <div class="intro-x mt-8">
                                 <input type="text" name="username" class="intro-x login__input input input--lg border border-gray-300 block" placeholder="Username">
                                 <input type="password" name="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Password">
