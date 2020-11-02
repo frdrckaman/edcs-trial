@@ -10,15 +10,11 @@ class SiteModelError(Exception):
 
 
 class CurrentSiteManager(BaseCurrentSiteManager):
-
     use_in_migrations = True
 
 
 class SiteModelMixin(models.Model):
-
-    site = models.ForeignKey(
-        Site, on_delete=models.PROTECT, null=True, editable=False, related_name="+"
-    )
+    site = models.ForeignKey(Site, on_delete=models.PROTECT, null=True, editable=False, related_name="+")
 
     def save(self, *args, **kwargs):
         if not self.site:
@@ -31,11 +27,8 @@ class SiteModelMixin(models.Model):
 
 
 class SiteProfile(models.Model):
-
     title = models.CharField(max_length=250, null=True)
-
     description = models.TextField(null=True)
-
     site = models.OneToOneField(Site, on_delete=models.PROTECT)
 
     def __str__(self):

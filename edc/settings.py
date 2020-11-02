@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'edc_auth.apps.EdcAuthConfig',
     'edc_dashboard.apps.EdcDashboardConfig',
+    'edc_sites.apps.EdcSitesConfig',
+    'edc_navbar.apps.EdcNavbarConfig',
 ]
 
 MIDDLEWARE = [
