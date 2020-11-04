@@ -5,4 +5,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('edc_auth.urls')),
     path('dashboard/', include('edc_dashboard.urls')),
+    path('forms', include('edc_forms.urls')),
 ]

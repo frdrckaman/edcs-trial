@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'edc_dashboard.apps.EdcDashboardConfig',
     'edc_sites.apps.EdcSitesConfig',
     'edc_navbar.apps.EdcNavbarConfig',
+    'edc_forms.apps.EdcFormsConfig',
 ]
 
 MIDDLEWARE = [
