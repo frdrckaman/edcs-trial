@@ -8,6 +8,7 @@ ENV_DIR = str(Path(os.path.join(BASE_DIR, '.env')))
 
 env = environ.Env(
     DJANGO_DEBUG=(bool, False),
+    DEBUG_TOOLBAR=(bool, False),
     DJANGO_EDC_BOOTSTRAP=(int, 3),
 )
 
@@ -21,6 +22,8 @@ SECRET_KEY = env.str('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG')
+DEBUG_TOOLBAR = env('DEBUG_TOOLBAR')
+
 
 LOGIN_REDIRECT_URL = env.str("DJANGO_LOGIN_REDIRECT_URL")
 
@@ -53,6 +56,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# setting debug toolbar
+if DEBUG and DEBUG_TOOLBAR:
+    INSTALLED_APPS.append('debug_toolbar')
+    MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+    INTERNAL_IPS = ['127.0.0.1']
 
 ROOT_URLCONF = 'edc.urls'
 
