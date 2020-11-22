@@ -1,13 +1,15 @@
 from pprint import pprint
 
 from django.contrib.sites.managers import CurrentSiteManager
+from django.contrib.sites.shortcuts import get_current_site
 from django.db import models
 from django.contrib.sites.models import Site
+from edc_sites.get_site_id import get_user_site
 
 # put validator
 from django.urls import reverse
 
-SEX = (('MALE', 'MALE'), ('FEMALE', 'FEMALE'))
+# SEX = (('MALE', 'MALE'), ('FEMALE', 'FEMALE'))
 
 
 class SmearPositiveTB(models.Model):
@@ -44,7 +46,8 @@ class BacteriologicalConfirmedPulmonaryTB(models.Model):
     age_45_54 = models.IntegerField(verbose_name='45-54')
     age_55_64 = models.IntegerField(verbose_name='55-64')
     age_65_above = models.IntegerField(verbose_name='65 and Above')
-    sex = models.CharField(verbose_name='GENDER', choices=SEX, max_length=12, default=None)
+    gender_male = models.IntegerField(verbose_name='Male', default=0)
+    gender_female = models.IntegerField(verbose_name='Female', default=0)
     soc_econ_pos_low = models.IntegerField(verbose_name='Low', default=0)
     soc_econ_pos_middle = models.IntegerField(verbose_name='Middle', default=0)
     soc_econ_pos_high = models.IntegerField(verbose_name='High', default=0, )
@@ -55,6 +58,8 @@ class BacteriologicalConfirmedPulmonaryTB(models.Model):
 
     class Meta:
         ordering = ('-created',)
+        verbose_name = 'Bacteriological Confirmed Pulmonary TB'
+        verbose_name_plural = 'Bacteriological Confirmed Pulmonary TB'
 
 
 class ClusterPrevalenceSurvey(models.Model):
@@ -65,3 +70,7 @@ class ClusterPrevalenceSurvey(models.Model):
     updated = models.DateTimeField(auto_now=True)
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
     on_site = CurrentSiteManager()
+
+    class Meta:
+        verbose_name = 'Cluster Prevalence Survey'
+        verbose_name_plural = 'Cluster Prevalence Survey'

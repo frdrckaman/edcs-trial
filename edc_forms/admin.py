@@ -4,7 +4,7 @@ from .models import SmearPositiveTB, BacteriologicalConfirmedPulmonaryTB, Cluste
 
 @admin.register(SmearPositiveTB)
 class SmearPositiveTBAdmin(admin.ModelAdmin):
-    list_display = ('created', 'updated', 'site')
+    list_display = ('created', 'updated')
     ordering = ('created',)
     fieldsets = (
         ('AGE GROUP',
@@ -28,9 +28,26 @@ class SmearPositiveTBAdmin(admin.ModelAdmin):
 class BacteriologicalConfirmedPulmonaryTBAdmin(admin.ModelAdmin):
     list_display = ('created', 'updated', 'site')
     ordering = ('created',)
+    fieldsets = (
+        ('AGE GROUP',
+         {
+             'fields': (
+                 'age_15_24',
+                 'age_25_34',
+                 'age_35_44',
+                 'age_45_54',
+                 'age_55_64',
+                 'age_65_above',
+             )
+         },
+         ),
+        ('GENDER', {'fields': ('gender_male', 'gender_female')}),
+        ('SOCIAL ECONOMIC POSITION', {'fields': ('soc_econ_pos_low', 'soc_econ_pos_middle', 'soc_econ_pos_high')})
+    )
 
 
 @admin.register(ClusterPrevalenceSurvey)
 class ClusterPrevalenceSurveyAdmin(admin.ModelAdmin):
     list_display = ('created', 'updated', 'site')
     ordering = ('created',)
+    fields = ('cluster_name', 'latitude', 'longitude')
