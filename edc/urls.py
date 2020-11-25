@@ -4,6 +4,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('', include('edc_auth.urls')),
     path('dashboard/', include('edc_dashboard.urls')),
     path('forms', include('edc_forms.urls')),
