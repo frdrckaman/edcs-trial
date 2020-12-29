@@ -1,0 +1,161 @@
+{% extends 'edc_dashboard/bootstrap3/base.html' %}
+{% block content %}
+    <div class="grid grid-cols-12 lg:col-start-4 gap-6 mt-8">
+            <div class="col-span-12 lg:col-span-3 xxl:col-span-2 xxl:col-start-3">
+                <h2 class="intro-y text-lg font-medium mr-auto mt-2">
+
+                </h2>
+                <!-- BEGIN: Inbox Menu -->
+                <div class="intro-y box bg-theme-1 p-5 mt-6">
+                    <a href="#" class="button button--lg flex items-center justify-center text-gray-700 dark:text-gray-300 w-full bg-white dark:bg-theme-1 mt-2">
+                        <i class="w-4 h-4 mr-2" data-feather="file-text"></i> More Data </a>
+                    <div class="border-t border-theme-3 dark:border-dark-5 mt-6 pt-6 text-white">
+                        {% for year in years %}
+                            <a href="{% url 'data-record' year.year year.id %}" class="flex items-center px-3 py-2 rounded-md bg-theme-22 dark:bg-dark-1 font-medium"> <i class="w-4 h-4 mr-2" data-feather="star"></i>
+                                {{ year.year }} </a>
+                        <i>&nbsp;</i>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- END: Inbox Menu -->
+            </div>
+            <div class="col-span-12 lg:col-span-9 xxl:col-span-6 xxl:col-start-5">
+                <div class="intro-y inbox box mt-5">
+                    <div class="p-5 flex flex-col-reverse sm:flex-row text-gray-600 border-b border-gray-200 dark:border-dark-1">
+                        <div class="flex items-center mt-3 sm:mt-0 border-t sm:border-0 border-gray-200 pt-5 sm:pt-0 mt-5 sm:mt-0 -mx-5 sm:mx-0 px-5 sm:px-0">
+                            <h3 class="dark:text-gray-800"><strong></strong></h3>
+                        </div>
+                        <div class="flex items-center sm:ml-auto">
+                            <!--                            <div class="dark:text-gray-300">1 - 50 of 5,238</div>-->
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto sm:overflow-x-visible">
+                        <div class="intro-y">
+                            <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
+                                <div class="flex px-5 py-3">
+                                    <div class="w-80 flex-none flex items-center mr-10">
+                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <div class="inbox__item--highlight ml-4"><a href="{{ data.get_admin_url }}?next=/admin&yrs=2009">Smear Positive Pulmonary Tuberculosis</a></div>
+                                    </div>
+                                    <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
+                                    <div class="inbox__item--time whitespace-no-wrap ml-auto pl-10">
+                                        <button class="button w-24 inline-block mr-1 mb-2 bg-theme-12 text-white inline-flex items-center"> Pending
+                                            <i data-loading-icon="three-dots" data-color="white" class="w-4 h-4 ml-auto"></i>
+                                        </button>
+                                        <!--                            <button class="button w-24 mr-1 mb-2 bg-theme-9 text-white">Complete</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-y">
+                            <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
+                                <div class="flex px-5 py-3">
+                                    <div class="w-80 flex-none flex items-center mr-10">
+                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <div class="inbox__item--highlight ml-4"><a href="#">Bacteriological Confirm Pulmonary Tuberculosis</a></div>
+                                    </div>
+                                    <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
+                                    <div class="inbox__item--time whitespace-no-wrap ml-auto pl-10">
+                                        <button class="button w-24 inline-block mr-1 mb-2 bg-theme-12 text-white inline-flex items-center"> Pending
+                                            <i data-loading-icon="three-dots" data-color="white" class="w-4 h-4 ml-auto"></i>
+                                        </button>
+                                        <!--                            <button class="button w-24 mr-1 mb-2 bg-theme-9 text-white">Complete</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-y">
+                            <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
+                                <div class="flex px-5 py-3">
+                                    <div class="w-80 flex-none flex items-center mr-10">
+                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <div class="inbox__item--highlight ml-4"><a href="#">Cluster Prevalence Survey Information</a></div>
+                                    </div>
+                                    <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
+                                    <div class="inbox__item--time whitespace-no-wrap ml-auto pl-10">
+                                        <button class="button w-24 inline-block mr-1 mb-2 bg-theme-12 text-white inline-flex items-center"> Pending
+                                            <i data-loading-icon="three-dots" data-color="white" class="w-4 h-4 ml-auto"></i>
+                                        </button>
+                                        <!--                            <button class="button w-24 mr-1 mb-2 bg-theme-9 text-white">Complete</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-y">
+                            <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
+                                <div class="flex px-5 py-3">
+                                    <div class="w-80 flex-none flex items-center mr-10">
+                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <div class="inbox__item--highlight ml-4"><a href="#">Routine Data</a></div>
+                                    </div>
+                                    <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
+                                    <div class="inbox__item--time whitespace-no-wrap ml-auto pl-10">
+                                        <button class="button w-24 inline-block mr-1 mb-2 bg-theme-12 text-white inline-flex items-center"> Pending
+                                            <i data-loading-icon="three-dots" data-color="white" class="w-4 h-4 ml-auto"></i>
+                                        </button>
+                                        <!--                            <button class="button w-24 mr-1 mb-2 bg-theme-9 text-white">Complete</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-y">
+                            <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
+                                <div class="flex px-5 py-3">
+                                    <div class="w-80 flex-none flex items-center mr-10">
+                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <div class="inbox__item--highlight ml-4"><a href="#">TB Treatment Outcome of New and Relapse TB Cases</a></div>
+                                    </div>
+                                    <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
+                                    <div class="inbox__item--time whitespace-no-wrap ml-auto pl-10">
+                                        <button class="button w-24 inline-block mr-1 mb-2 bg-theme-12 text-white inline-flex items-center"> Pending
+                                            <i data-loading-icon="three-dots" data-color="white" class="w-4 h-4 ml-auto"></i>
+                                        </button>
+                                        <!--                            <button class="button w-24 mr-1 mb-2 bg-theme-9 text-white">Complete</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-y">
+                            <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
+                                <div class="flex px-5 py-3">
+                                    <div class="w-80 flex-none flex items-center mr-10">
+                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <div class="inbox__item--highlight ml-4"><a href="#">Treatment Outcome of Previously Treated(Except relapse) Cases </a></div>
+                                    </div>
+                                    <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
+                                    <div class="inbox__item--time whitespace-no-wrap ml-auto pl-10">
+                                        <button class="button w-24 inline-block mr-1 mb-2 bg-theme-12 text-white inline-flex items-center"> Pending
+                                            <i data-loading-icon="three-dots" data-color="white" class="w-4 h-4 ml-auto"></i>
+                                        </button>
+                                        <!--                            <button class="button w-24 mr-1 mb-2 bg-theme-9 text-white">Complete</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-y">
+                            <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
+                                <div class="flex px-5 py-3">
+                                    <div class="w-80 flex-none flex items-center mr-10">
+                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <div class="inbox__item--highlight ml-4"><a href="#">MDRTB Notifications</a></div>
+                                    </div>
+                                    <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
+                                    <div class="inbox__item--time whitespace-no-wrap ml-auto pl-10">
+                                        <button class="button w-24 inline-block mr-1 mb-2 bg-theme-12 text-white inline-flex items-center"> Pending
+                                            <i data-loading-icon="three-dots" data-color="white" class="w-4 h-4 ml-auto"></i>
+                                        </button>
+                                        <!--                            <button class="button w-24 mr-1 mb-2 bg-theme-9 text-white">Complete</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col sm:flex-row items-center text-center sm:text-left text-gray-600">
+                        <div class="dark:text-gray-300">&nbsp;</div>
+                        <div class="sm:ml-auto mt-2 sm:mt-0 dark:text-gray-300">&nbsp;</div>
+                    </div>
+                </div>
+                <!-- END: Inbox Content -->
+            </div>
+        </div>
+{% endblock content %}

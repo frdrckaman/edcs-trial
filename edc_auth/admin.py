@@ -26,6 +26,7 @@ class UserProfileAdmin(admin.ModelAdmin):
     filter_horizontal = ("sites",)
     list_display = ("user", "mobile", "user_sites",)
 
+# if you want to include foreignKey value on list_display
     def user_sites(self, obj=None):
         return mark_safe("<BR>".join([o.name for o in obj.sites.all().order_by("name")]))
 

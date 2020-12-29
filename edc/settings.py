@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'edc_sites.apps.EdcSitesConfig',
     'edc_navbar.apps.EdcNavbarConfig',
     'edc_forms.apps.EdcFormsConfig',
-
+    'edc_models.apps.EdcModelsConfig',
+    'django_revision.apps.AppConfig',
+    'django_audit_fields.apps.AppConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -122,6 +124,13 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+# Django field class to your models to track the git revision with every model instance saved.
+# https://pypi.org/project/django-revision/
+
+GIT_DIR = BASE_DIR
+
+APP_NAME = env.str("DJANGO_APP_NAME")
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 

@@ -1,0 +1,48 @@
+{% extends 'edc_dashboard/bootstrap3/base.html' %}
+{% block content %}
+    <div class="grid grid-cols-12 gap-4 mt-5">
+            <div class="intro-y col-span-12 lg:col-span-6 lg:col-start-4">
+                <div class="grid grid-cols-12 gap-6 mt-5">
+                    <!-- BEGIN: Data List -->
+                    <div class="intro-y col-span-8 overflow-auto lg:col-start-3 lg:overflow-visible">
+                        <table class="table table-report -mt-2">
+                            <thead>
+                            <tr>
+                                <th class="text-center whitespace-no-wrap">YEAR</th>
+                                <th class="text-center whitespace-no-wrap">STATUS</th>
+                                <th class="text-center whitespace-no-wrap">ACTIONS</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for year in years  %}
+                                <tr class="intro-x">
+                                    <td class="text-center"><a href="{% url 'data-record' year.year year.id %}">{{ year.year }}</a> </td>
+                                    <td class="w-40">
+                                        <button class="button w-24 inline-block mr-1 mb-2 bg-theme-12 text-white inline-flex items-center"> Pending
+                                            <i data-loading-icon="three-dots" data-color="white" class="w-4 h-4 ml-auto"></i>
+                                        </button>
+                                        <!--                            <button class="button w-24 mr-1 mb-2 bg-theme-9 text-white">Complete</button>-->
+                                    </td>
+                                    <td class="w-40">
+                                        <div class="flex items-center justify-center text-theme-9"> <i data-feather="align-justify" class="w-4 h-4 mr-2"></i>
+                                            <a href=""> View</a>
+                                        </div>
+                                    </td>
+                                    <td class="w-40">
+                                        <div class="flex items-center justify-center text-theme-9"> <i data-feather="plus-square" class="w-4 h-4 mr-2"></i>
+                                            <a href=""> Add</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END: Data List -->
+                    <!-- BEGIN: Pagination -->
+
+                    <!-- END: Pagination -->
+                </div>
+            </div>
+        </div>
+{% endblock content %}

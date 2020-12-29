@@ -1,12 +1,23 @@
 from django.contrib import admin
-from .models import SmearPositiveTB, BacteriologicalConfirmedPulmonaryTB, ClusterPrevalenceSurvey
+from django.contrib.admin import AdminSite
+from django.utils.safestring import mark_safe
+from .models import SmearPositiveTB, BacteriologicalConfirmedPulmonaryTB, ClusterPrevalenceSurvey, RetroYears
+
+
+# class SmearAdmin(AdminSite):
+#     site_header = 'Smear Positive TB'
+#
+#
+# admin_site = SmearAdmin(name='smearAdmin')
+# admin_site.register(SmearPositiveTB)
 
 
 @admin.register(SmearPositiveTB)
 class SmearPositiveTBAdmin(admin.ModelAdmin):
-    list_display = ('created', 'updated')
-    ordering = ('created',)
+    list_display = ('created', 'year',)
+    # ordering = ('created',)
     fieldsets = (
+        (None, {"fields": ("year",)}),
         ('AGE GROUP',
          {
              'fields': (
@@ -26,8 +37,8 @@ class SmearPositiveTBAdmin(admin.ModelAdmin):
 
 @admin.register(BacteriologicalConfirmedPulmonaryTB)
 class BacteriologicalConfirmedPulmonaryTBAdmin(admin.ModelAdmin):
-    list_display = ('created', 'updated', 'site')
-    ordering = ('created',)
+    # list_display = ('created',)
+    # ordering = ('created',)
     fieldsets = (
         ('AGE GROUP',
          {
@@ -48,6 +59,12 @@ class BacteriologicalConfirmedPulmonaryTBAdmin(admin.ModelAdmin):
 
 @admin.register(ClusterPrevalenceSurvey)
 class ClusterPrevalenceSurveyAdmin(admin.ModelAdmin):
-    list_display = ('created', 'updated', 'site')
-    ordering = ('created',)
+    # list_display = ('created', 'updated')
+    # ordering = ('created',)
     fields = ('cluster_name', 'latitude', 'longitude')
+
+
+@admin.register(RetroYears)
+class RetroYearsAdmin(admin.ModelAdmin):
+    list_display = ('year',)
+    fields = ('year',)

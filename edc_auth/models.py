@@ -6,7 +6,7 @@ from django.contrib.sites.models import Site
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=CASCADE)
+    user = models.OneToOneField(User, on_delete=CASCADE, related_name='profile')
     job_title = models.CharField(max_length=100, null=True, blank=True)
     alternate_email = models.EmailField("Alternate email address", blank=True, null=True)
     sites = models.ManyToManyField(Site, blank=True)
