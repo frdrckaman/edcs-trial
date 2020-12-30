@@ -16,7 +16,7 @@
                             <tbody>
                             {% for year in years  %}
                                 <tr class="intro-x">
-                                    <td class="text-center"><a href="{% url 'data-record' year.year year.id %}">{{ year.year }}</a> </td>
+                                    <td class="text-center"><a href="{% url 'data-record' year.year  year.id %}">{{ year.year }}</a> </td>
                                     <td class="w-40">
                                         <button class="button w-24 inline-block mr-1 mb-2 bg-theme-12 text-white inline-flex items-center"> Pending
                                             <i data-loading-icon="three-dots" data-color="white" class="w-4 h-4 ml-auto"></i>

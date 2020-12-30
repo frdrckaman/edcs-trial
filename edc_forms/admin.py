@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite
 from django.utils.safestring import mark_safe
+from .forms import SmearPositiveTBForm
 from .models import SmearPositiveTB, BacteriologicalConfirmedPulmonaryTB, ClusterPrevalenceSurvey, RetroYears
 
 
@@ -14,10 +15,11 @@ from .models import SmearPositiveTB, BacteriologicalConfirmedPulmonaryTB, Cluste
 
 @admin.register(SmearPositiveTB)
 class SmearPositiveTBAdmin(admin.ModelAdmin):
+    form = SmearPositiveTBForm
     list_display = ('created', 'year',)
     # ordering = ('created',)
     fieldsets = (
-        (None, {"fields": ("year",)}),
+        (None, {"fields": ("year", )}),
         ('AGE GROUP',
          {
              'fields': (

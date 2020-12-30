@@ -19,19 +19,12 @@ class DashboardView(View):
 class DataDashboardView(View):
     def get(self, request, *args, **kwargs):
         years = RetroYears.objects.all()
-        pprint(request.GET.get('uuid'))
         return render(request, 'edc_dashboard/bootstrap3/data-dashboard.html', {'years': years})
 
 
 class DataFormsView(View):
-
-    def get_initial(self, request):
-        # frd = SmearPositiveTB.objects.get(id=request.GET['uuid'])
-        return pprint(request.GET.get('uuid'))
-
     def get(self, request, *args, **kwargs):
-        pprint(request.GET.get('uuid'))
         years = RetroYears.objects.all()
         data = SmearPositiveTB()
-        # pprint(self.get_initial(request))
-        return render(request, 'edc_dashboard/bootstrap3/data-record.html', {'years': years, 'data': data})
+        context = {'years': years, 'data': data, 'subject_id': kwargs['uuid']}
+        return render(request, 'edc_dashboard/bootstrap3/data-record.html', context)
