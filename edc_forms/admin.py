@@ -16,7 +16,7 @@ from .models import SmearPositiveTB, BacteriologicalConfirmedPulmonaryTB, Cluste
 @admin.register(SmearPositiveTB)
 class SmearPositiveTBAdmin(admin.ModelAdmin):
     form = SmearPositiveTBForm
-    list_display = ('created', 'year',)
+    list_display = ('created',)
     # ordering = ('created',)
     fieldsets = (
         (None, {"fields": ("year", )}),
@@ -35,6 +35,13 @@ class SmearPositiveTBAdmin(admin.ModelAdmin):
         ('GENDER', {'fields': ('gender_male', 'gender_female')}),
         ('SOCIAL ECONOMIC POSITION', {'fields': ('soc_econ_pos_low', 'soc_econ_pos_middle', 'soc_econ_pos_high')})
     )
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if request.GET.get("subject_id"):
+            kwargs["queryset"] = db_field.related_model.objects.filter(
+                pk=request.GET.get("subject_id", 0)
+            )
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 @admin.register(BacteriologicalConfirmedPulmonaryTB)

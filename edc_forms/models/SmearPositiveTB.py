@@ -4,10 +4,11 @@ from django.db.models import PROTECT
 
 from edc_models.base_uuid_model import BaseUuidModel
 from .RetroYears import RetroYears
+from .RetroYearMixn import RetroYearMixn
 
 
-class SmearPositiveTB(BaseUuidModel, models.Model):
-    year = models.OneToOneField(RetroYears, on_delete=PROTECT, null=True)
+class SmearPositiveTB(BaseUuidModel, RetroYearMixn, models.Model):
+    # year = models.OneToOneField(RetroYears, on_delete=PROTECT, null=True)
     age_15_24 = models.IntegerField(verbose_name='15-24')
     age_25_34 = models.IntegerField(verbose_name='25-34')
     age_35_44 = models.IntegerField(verbose_name='35-44')
