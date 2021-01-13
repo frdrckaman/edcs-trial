@@ -43,6 +43,12 @@ class SmearPositiveTBAdmin(admin.ModelAdmin):
             )
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
+    def get_readonly_fields(self, request, obj=None):
+        readonly_fields = super().get_readonly_fields(request, obj=obj)
+        if not request.GET.get('subject_id') and 'subject_id' not in readonly_fields:
+            return self.readonly_fields + ('year',)
+        return self.readonly_fields
+
 
 @admin.register(BacteriologicalConfirmedPulmonaryTB)
 class BacteriologicalConfirmedPulmonaryTBAdmin(admin.ModelAdmin):
