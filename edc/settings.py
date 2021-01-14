@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'edc_navbar.apps.EdcNavbarConfig',
     'edc_forms.apps.EdcFormsConfig',
     'edc_models.apps.EdcModelsConfig',
+    'edc_theme.apps.EdcThemeConfig',
     'django_revision.apps.AppConfig',
     'django_audit_fields.apps.AppConfig',
     'allauth',

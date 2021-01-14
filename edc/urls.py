@@ -11,7 +11,8 @@ urlpatterns = [
     # path('dashboard/', include('edc_dashboard.urls', namespace='edc_dashboard')),
     path('dashboard/', include('edc_dashboard.urls')),
     path('forms', include('edc_forms.urls')),
-    path('navbar', include('edc_navbar.urls'))
+    path('navbar', include('edc_navbar.urls')),
+    path('theme', include('edc_theme.urls')),
 ]
 
 if settings.DEBUG and settings.DEBUG_TOOLBAR:

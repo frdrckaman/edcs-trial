@@ -1,6 +1,7 @@
 {% extends 'edc_dashboard/bootstrap3/base.html' %}
 {% load static %}
 {% load auth_tags %}
+{% load edcs_theme_tags %}
 {% block title %}<title>EDC - Login</title>{% endblock title %}
 {% block body %}
     <body class="login">
@@ -77,8 +78,8 @@
             </div>
         </div>
         <!-- BEGIN: Dark Mode Switcher-->
-        <div data-url="side-menu-dark-dashboard.html" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 right-0 box dark:bg-dark-2 border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 mr-10">
-            <div class="mr-4 text-gray-700 dark:text-gray-300">Dark Mode</div>
+        <div data-url="{% url 'theme' %}?theme={% theme_next %}&uuid={% theme_id %}&next={{ request.get_full_path }}" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 right-0 box dark:bg-dark-2 border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 mr-10">
+            <div class="mr-4 text-gray-700 dark:text-gray-300">{% theme_name %}</div>
             <div class="dark-mode-switcher__toggle border"></div>
         </div>
 </body>
