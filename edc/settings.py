@@ -28,6 +28,8 @@ SUBJECT_DATA_MODEL = env('EDC_SUBJECT_DATA_MODEL')
 
 LOGIN_REDIRECT_URL = env.str("DJANGO_LOGIN_REDIRECT_URL")
 
+EDC_THEME = env('EDC_THEME')
+
 ALLOWED_HOSTS = []
 
 
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
     'edc_theme.apps.EdcThemeConfig',
     'django_revision.apps.AppConfig',
     'django_audit_fields.apps.AppConfig',
+    'simple_history',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -63,6 +66,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_currentuser.middleware.ThreadLocalUserMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 # setting debug toolbar

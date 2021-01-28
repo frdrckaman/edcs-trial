@@ -1,17 +1,19 @@
 from django import template
 from edc_theme.models import EdcsTheme
+from django_currentuser.middleware import (
+    get_current_user, get_current_authenticated_user)
 
 register = template.Library()
 
 
 @register.simple_tag
 def theme_tag():
-    return EdcsTheme.objects.values('theme')[0]['theme']
+    return EdcsTheme.objects.filter(user_id=get_current_user().id).first()
 
 
 @register.simple_tag
 def theme_next():
-    if EdcsTheme.objects.values('theme')[0]['theme'] == 'light':
+    if EdcsTheme.objects.filter(user_id=get_current_user().id).first().theme == 'light':
         theme = 'dark'
     else:
         theme = 'light'
@@ -20,7 +22,7 @@ def theme_next():
 
 @register.simple_tag
 def theme_name():
-    if EdcsTheme.objects.values('theme')[0]['theme'] == 'dark':
+    if EdcsTheme.objects.filter(user_id=get_current_user().id).first().theme == 'dark':
         return 'Light Mode'
     else:
         return 'Dark Mode'
@@ -28,4 +30,5 @@ def theme_name():
 
 @register.simple_tag
 def theme_id():
-    return EdcsTheme.objects.values('id')[0]['id']
+    return EdcsTheme.objects.filter(user_id=get_current_user().id).first().id
+

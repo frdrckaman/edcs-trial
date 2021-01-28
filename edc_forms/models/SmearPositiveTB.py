@@ -3,11 +3,12 @@ from django.contrib.sites.models import Site
 from django.db.models import PROTECT
 
 from edc_models.base_uuid_model import BaseUuidModel
+from edc_models.base_model import BaseModel
 from .RetroYears import RetroYears
 from .RetroYearMixn import RetroYearMixn
 
 
-class SmearPositiveTB(BaseUuidModel, RetroYearMixn, models.Model):
+class SmearPositiveTB(BaseUuidModel, RetroYearMixn, BaseModel):
     age_15_24 = models.IntegerField(verbose_name='15-24')
     age_25_34 = models.IntegerField(verbose_name='25-34')
     age_35_44 = models.IntegerField(verbose_name='35-44')

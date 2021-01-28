@@ -2,10 +2,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 # from edc_forms.admin import admin_site
+# from edc_theme.admin import admin_site
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('smearAdmin/', admin_site.urls),
+    # path('frd/', admin_site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('edc_auth.urls')),
     # path('dashboard/', include('edc_dashboard.urls', namespace='edc_dashboard')),
