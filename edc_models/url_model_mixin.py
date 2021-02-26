@@ -15,10 +15,11 @@ class UrlModelMixin(models.Model):
 
     def get_absolute_url(self):
         try:
-            if self.id:
-                absolute_url = reverse(self.admin_url_name, args=(str(self.id),))
-            else:
-                absolute_url = reverse(self.admin_url_name)
+            absolute_url = reverse(self.admin_url_name)
+            # if self.id:
+            #     absolute_url = reverse(self.admin_url_name, args=(str(self.id),))
+            # else:
+            #     absolute_url = reverse(self.admin_url_name)
         except NoReverseMatch as e:
             raise UrlModelMixinNoReverseMatch(
                 f"Tried {self.admin_url_name}. Got {e}. "
