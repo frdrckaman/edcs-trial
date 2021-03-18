@@ -1,0 +1,4 @@
+from .BacteriologicalConfPulTbAdmin import BacteriologicalConfPulTbAdmin
+from .ClusterPrevalenceSurveyAdmin import ClusterPrevalenceSurveyAdmin
+from .RetroYearsAdmin import RetroYearsAdmin
+from .SmearPositiveTbAdmin import SmearPositiveTBAdmin

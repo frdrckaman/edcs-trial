@@ -11,7 +11,7 @@
                         <i class="w-4 h-4 mr-2" data-feather="file-text"></i> More Data </a>
                     <div class="border-t border-theme-3 dark:border-dark-5 mt-6 pt-6 text-white">
                         {% for year in years %}
-                            <a href="{% url 'data-record' year.year year.id %}" class="flex items-center px-3 py-2 rounded-md bg-theme-22 dark:bg-dark-1 font-medium"> <i class="w-4 h-4 mr-2" data-feather="star"></i>
+                            <a href="{% url 'edc_dashboard:data-record' year.year year.id %}" class="flex items-center px-3 py-2 rounded-md bg-theme-22 dark:bg-dark-1 font-medium"> <i class="w-4 h-4 mr-2" data-feather="star"></i>
                                 {{ year.year }} </a>
                         <i>&nbsp;</i>
                         {% endfor %}
@@ -30,11 +30,12 @@
                         </div>
                     </div>
                     <div class="overflow-x-auto sm:overflow-x-visible">
+
                         <div class="intro-y">
                             <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
                                 <div class="flex px-5 py-3">
                                     <div class="w-80 flex-none flex items-center mr-10">
-                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <a href="javascript:" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
                                         <div class="inbox__item--highlight ml-4"><a href="{{ data.get_absolute_url }}?subject_id={{ subject_id }}">Smear Positive Pulmonary Tuberculosis</a></div>
                                     </div>
                                     <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
@@ -51,7 +52,7 @@
                             <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
                                 <div class="flex px-5 py-3">
                                     <div class="w-80 flex-none flex items-center mr-10">
-                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <a href="javascript:" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
                                         <div class="inbox__item--highlight ml-4"><a href="#">Bacteriological Confirm Pulmonary Tuberculosis</a></div>
                                     </div>
                                     <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
@@ -68,7 +69,7 @@
                             <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
                                 <div class="flex px-5 py-3">
                                     <div class="w-80 flex-none flex items-center mr-10">
-                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <a href="javascript:" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
                                         <div class="inbox__item--highlight ml-4"><a href="#">Cluster Prevalence Survey Information</a></div>
                                     </div>
                                     <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
@@ -85,7 +86,7 @@
                             <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
                                 <div class="flex px-5 py-3">
                                     <div class="w-80 flex-none flex items-center mr-10">
-                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <a href="javascript:" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
                                         <div class="inbox__item--highlight ml-4"><a href="#">Routine Data</a></div>
                                     </div>
                                     <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
@@ -102,7 +103,7 @@
                             <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
                                 <div class="flex px-5 py-3">
                                     <div class="w-80 flex-none flex items-center mr-10">
-                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <a href="javascript:" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
                                         <div class="inbox__item--highlight ml-4"><a href="#">TB Treatment Outcome of New and Relapse TB Cases</a></div>
                                     </div>
                                     <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
@@ -119,7 +120,7 @@
                             <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
                                 <div class="flex px-5 py-3">
                                     <div class="w-80 flex-none flex items-center mr-10">
-                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <a href="javascript:" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
                                         <div class="inbox__item--highlight ml-4"><a href="#">Treatment Outcome of Previously Treated(Except relapse) Cases </a></div>
                                     </div>
                                     <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>
@@ -136,7 +137,7 @@
                             <div class="inbox__item inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
                                 <div class="flex px-5 py-3">
                                     <div class="w-80 flex-none flex items-center mr-10">
-                                        <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
+                                        <a href="javascript:" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500"> <i class="w-4 h-4" data-feather="file-text"></i> </a>
                                         <div class="inbox__item--highlight ml-4"><a href="#">MDRTB Notifications</a></div>
                                     </div>
                                     <div class="w-64 sm:w-auto truncate"> <span class="inbox__item--highlight"></span></div>

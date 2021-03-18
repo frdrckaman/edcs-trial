@@ -1,6 +1,7 @@
 from django.db import models
 
 from edc_models.base_uuid_model import BaseUuidModel
+from edc_models.historical_records import HistoricalRecords
 
 from .RetroYearMixn import RetroYearMixin
 
@@ -20,6 +21,7 @@ class SmearPositiveTB(RetroYearMixin, BaseUuidModel):
         verbose_name="High",
         default=0,
     )
+    history = HistoricalRecords()
 
     def __str__(self):
         return str(self.year)

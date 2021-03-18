@@ -1,17 +1,17 @@
 from django.db import models
-from django.contrib.sites.models import Site
+
 from edc_models.base_uuid_model import BaseUuidModel
-# from ..studyYearMixin import StudyYearMixin
-from django.urls import reverse
+from edc_models.historical_records import HistoricalRecords
 
 
 class RetroYears(BaseUuidModel):
-    year = models.IntegerField(verbose_name='Retro-Year', default=0)
+    year = models.IntegerField(verbose_name="Retro-Year", default=0)
+    history = HistoricalRecords()
 
     def __str__(self):
         return str(self.year)
 
     class Meta:
-        ordering = ('year',)
-        verbose_name = 'Retrospective year'
-        verbose_name_plural = 'Retrospective years'
+        ordering = ("year",)
+        verbose_name = "Retrospective year"
+        verbose_name_plural = "Retrospective years"

@@ -1,0 +1,22 @@
+{% extends 'edc_dashboard/bootstrap3/base.html' %}
+{% block content %}
+    {% block main-menu %}
+
+    {% endblock main-menu %}
+    <div class="pos intro-y grid grid-cols-12 gap-5 mt-5">
+            <!-- BEGIN: Item List -->
+            <div class="intro-y col-span-12 lg:col-span-12">
+                <div class="grid grid-cols-12 gap-5 mt-5">
+                    <a href="{% url 'admin:index' %}" class="col-span-12 sm:col-span-3 xxl:col-span-3 box p-5 cursor-pointer zoom-in">
+                        <div class="font-medium text-base">Accounts , User, Groups</div>
+                    </a>
+                    <a href="{% url 'edc_forms' %}" class="col-span-12 sm:col-span-3 xxl:col-span-3 box p-5 cursor-pointer zoom-in">
+                        <div class="font-medium text-base">EDC Forms</div>
+                    </a>
+                    <a href="#" class="col-span-12 sm:col-span-3 xxl:col-span-3 box p-5 cursor-pointer zoom-in">
+                        <div class="font-medium text-base">EDC Crfs</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+{% endblock content %}
