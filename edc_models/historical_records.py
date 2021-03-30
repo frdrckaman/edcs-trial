@@ -12,12 +12,10 @@ class SerializableModelManager(models.Manager):
 class SerializableModel(models.Model):
     objects = SerializableModelManager()
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.history_id = None
-
-    def natural_key(self):
-        return (self.history_id,)
+    def natural_key(self) -> tuple:
+        return tuple(
+            self.history_id,
+        )
 
     class Meta:
         abstract = True

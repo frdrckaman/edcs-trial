@@ -1,4 +1,10 @@
+from django.core.validators import (
+    MaxLengthValidator,
+    MinLengthValidator,
+    RegexValidator,
+)
 from django.db import models
+from django_crypto_fields.fields import EncryptedCharField
 
 from edc_models.base_uuid_model import BaseUuidModel
 from edc_models.historical_records import HistoricalRecords
@@ -21,6 +27,18 @@ class SmearPositiveTB(RetroYearMixin, BaseUuidModel):
         verbose_name="High",
         default=0,
     )
+    # initials = EncryptedCharField(
+    #     validators=[
+    #         RegexValidator("[A-Z]{1,3}", "Invalid format"),
+    #         MinLengthValidator(2),
+    #         MaxLengthValidator(3),
+    #     ],
+    #     help_text=(
+    #         "Use UPPERCASE letters only. May be 2 or 3 letters. "
+    #         "Use `F`irst`L`ast or `L`ast`F`irst depending on the country custom. "
+    #     ),
+    #     blank=False,
+    # )
     history = HistoricalRecords()
 
     def __str__(self):

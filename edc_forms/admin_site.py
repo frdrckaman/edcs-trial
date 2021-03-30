@@ -6,7 +6,7 @@ class AdminSite(DjangoAdminSite):
 
     site_title = "Forms"
     site_header = "Forms"
-    index_title = "Forms"
+    index_title = "forms"
     site_url = "/administration/"
 
     def each_context(self, request):

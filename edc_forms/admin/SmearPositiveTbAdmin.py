@@ -45,6 +45,7 @@ class SmearPositiveTBAdmin(SimpleHistoryAdmin):
                 )
             },
         ),
+        # (None, {"fields": ("initials",)}),
     )
 
     def render_change_form(
